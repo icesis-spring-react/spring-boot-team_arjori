@@ -2,6 +2,8 @@ package com.example.api.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class Director {
     private Long id;
@@ -10,8 +12,8 @@ public class Director {
     public Director() {
     }
 
-    public Director(Long id, String name) {
-        this.id = id;
+    public Director(String name) {
+        this.id = new Date().getTime();
         this.name = name;
     }
 
