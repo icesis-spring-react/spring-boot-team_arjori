@@ -25,15 +25,11 @@ Para este tipo de autenticación se debe pasar las credenciales de usuario y con
 
 ![BASIC_AUTH_OK](/docs/BASIC_AUTH_OK.png)
 
-<br>
-*Figura 1: Autenticación básica realizada con éxito y generación de JWT.*
-<br>
+**Figura 1: Autenticación básica realizada con éxito y generación de JWT.**
 
 ![BASIC_AUTH_REJ](/docs/BASIC_AUTH_REJ.png)
 
-<br>
-*Figura 2: Autenticación básica realizada sin éxito.*
-<br>
+**Figura 2: Autenticación básica realizada sin éxito.**
 
 ### Autenticación por JWT:
 
@@ -41,12 +37,8 @@ Para este tipo de autenticación se debe pasar el JWT generado (como en la Figur
 
 ![JWT_AUTH_OK](/docs/JWT_AUTH_OK.png)
 
-<br>
-*Figura 3: Autenticación con JWT realizada con éxito.*
-<br>
+**Figura 3: Autenticación con JWT realizada con éxito.**
 
 ![JWT_AUTH_REJ](/docs/JWT_AUTH_REJ.png)
 
-<br>
-*Figura 4: Autenticación con JWT realizada sin éxito.*
-<br>
+**Figura 4: Autenticación con JWT realizada sin éxito.**
