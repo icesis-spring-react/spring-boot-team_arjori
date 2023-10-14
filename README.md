@@ -23,13 +23,13 @@ En este proyecto se tiene un sólo usuario quemado en el código:
 
 Para este tipo de autenticación se debe pasar las credenciales de usuario y contraseña, como se muestra en la Figura 1 y 2.
 
-![BASIC_AUTH_OK]{/docs/BASIC_AUTH_OK.png}
+![BASIC_AUTH_OK](/docs/BASIC_AUTH_OK.png)
 
 <br>
 *Figura 1: Autenticación básica realizada con éxito y generación de JWT.*
 <br>
 
-![BASIC_AUTH_REJ]{/docs/BASIC_AUTH_REJ.png}
+![BASIC_AUTH_REJ](/docs/BASIC_AUTH_REJ.png)
 
 <br>
 *Figura 2: Autenticación básica realizada sin éxito.*
@@ -39,13 +39,13 @@ Para este tipo de autenticación se debe pasar las credenciales de usuario y con
 
 Para este tipo de autenticación se debe pasar el JWT generado (como en la Figura 1), tal y como se muestra en la Figura 3 y 4.
 
-![JWT_AUTH_OK]{/docs/JWT_AUTH_OK.png}
+![JWT_AUTH_OK](/docs/JWT_AUTH_OK.png)
 
 <br>
 *Figura 3: Autenticación con JWT realizada con éxito.*
 <br>
 
-![JWT_AUTH_REJ]{/docs/JWT_AUTH_REJ.png}
+![JWT_AUTH_REJ](/docs/JWT_AUTH_REJ.png)
 
 <br>
 *Figura 4: Autenticación con JWT realizada sin éxito.*
