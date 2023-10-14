@@ -16,8 +16,8 @@ Para emplear los endpoints de la API se requiere autenticación, la cual se pued
 
 En este proyecto se tiene un sólo usuario quemado en el código:
 
--username: admin
--password: admin
+- username: admin
+- password: admin
 
 ### Autenticación básica:
 
