@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public class DirectorRepository {
-
     private final List<Director> directors = new ArrayList<>();
 
     public DirectorRepository() {
@@ -25,24 +24,22 @@ public class DirectorRepository {
     }
 
     public List<Director> getAllDirectors() {
-        return this.directors;
+        return directors;
     }
 
     public Director getDirectorById(Long id) {
-        return this.directors.stream().filter(director -> director.getId().equals(id)).findFirst().orElse(null);
+        return directors.stream().filter(director -> director.getId().equals(id)).findFirst().orElse(null);
     }
 
-    public Director addDirector(Director director) {
-        this.directors.add(director);
-        return director;
+    public void addDirector(Director director) {
+        directors.add(director);
     }
 
-    public Director updateDirector(Director director, String name) {
+    public void updateDirectorName(Director director, String name) {
         director.setName(name);
-        return director;
     }
 
-    public void deleteDirector(Long id) {
-        this.directors.removeIf(director -> director.getId().equals(id));
+    public void deleteDirectorById(Long id) {
+        directors.removeIf(director -> director.getId().equals(id));
     }
 }

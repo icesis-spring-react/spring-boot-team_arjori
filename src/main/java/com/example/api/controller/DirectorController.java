@@ -8,34 +8,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
 public class DirectorController {
+    private final DirectorService directorService;
 
     @Autowired
-    private DirectorService directorService;
+    public DirectorController(DirectorService directorService) {
+        this.directorService = directorService;
+    }
 
     @GetMapping("/directors")
-    public List<Director> getDirectors() {
-        return this.directorService.geAllDirectors();
+    public List<Director> getAllDirectors() {
+        return directorService.getAllDirectors();
     }
 
     @GetMapping("/director/{id}")
-    public Director getDirector(@PathVariable String id) {
-        return this.directorService.getDirector(Long.parseLong(id));
+    public Director getDirectorById(@PathVariable String id) {
+        return directorService.getDirectorById(Long.parseLong(id));
     }
 
     @PostMapping("/director")
-    public Director addDirector(@RequestBody Director director) {
-        return this.directorService.addDirector(director.getName());
+    public String addDirector(@RequestBody Director director) {
+        return directorService.addDirector(director.getName());
     }
 
     @PutMapping("/director/{id}")
     public String updateDirector(@PathVariable String id, @RequestBody Director director) {
-        return this.directorService.updateDirector(Long.parseLong(id), director.getName());
+        return directorService.updateDirector(Long.parseLong(id), director.getName());
     }
 
     @DeleteMapping("/director/{id}")
     public String deleteDirector(@PathVariable String id) {
-        return this.directorService.deleteDirector(Long.parseLong(id));
+        return directorService.deleteDirector(Long.parseLong(id));
     }
 }

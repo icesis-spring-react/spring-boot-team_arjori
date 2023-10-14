@@ -9,37 +9,41 @@ import java.util.List;
 
 @Service
 public class DirectorService {
+    private final DirectorRepository directorRepository;
+
     @Autowired
-    private DirectorRepository directorRepository;
-
-    public List<Director> geAllDirectors() {
-        return this.directorRepository.getAllDirectors();
+    public DirectorService(DirectorRepository directorRepository) {
+        this.directorRepository = directorRepository;
     }
 
-    public Director getDirector(Long id) {
-        return this.directorRepository.getDirectorById(id);
+    public List<Director> getAllDirectors() {
+        return directorRepository.getAllDirectors();
     }
 
-    public Director addDirector(String name) {
-        Director director = new Director(name);
-        return this.directorRepository.addDirector(director);
+    public Director getDirectorById(Long id) {
+        return directorRepository.getDirectorById(id);
+    }
+
+    public String addDirector(String name) {
+        directorRepository.addDirector(new Director(name));
+        return "The director has been added.";
     }
 
     public String updateDirector(Long id, String name) {
         Director director = this.directorRepository.getDirectorById(id);
         if (director != null) {
-            this.directorRepository.updateDirector(director, name);
-            return "Director updated";
+            directorRepository.updateDirectorName(director, name);
+            return "The director has been updated.";
         }
-        return "Director not found";
+        return "The director wasn't found.";
     }
 
     public String deleteDirector(Long id) {
-        Director director = this.directorRepository.getDirectorById(id);
+        Director director = directorRepository.getDirectorById(id);
         if (director != null) {
-            this.directorRepository.deleteDirector(id);
-            return "Director deleted";
+            directorRepository.deleteDirectorById(id);
+            return "The director has been deleted.";
         }
-        return "Director not found";
+        return "The director wasn't found.";
     }
 }
