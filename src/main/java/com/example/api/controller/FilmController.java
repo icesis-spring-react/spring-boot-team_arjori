@@ -40,7 +40,9 @@ public class FilmController {
     }
     @PutMapping("/pelicula/{id}")
     public String updateFilm(@PathVariable String id, @RequestBody Film film) {
-        return filmService.updateFilm(film.getId(),film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
+        if(film.getId()==(Long.parseLong(id)))
+            return filmService.updateFilm(film.getId(),film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
+        else return "Film ID does not match";
     }
     @DeleteMapping
     public String deleteFilm(@PathVariable String id) {

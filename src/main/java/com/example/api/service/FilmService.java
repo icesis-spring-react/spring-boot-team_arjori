@@ -24,7 +24,8 @@ public class FilmService {
     public String updateFilm(Long id, String title, String genre, String director, Date releaseDate){
         Film film = filmRepository.getFilmById(id);
         if (film!=null){
-            filmRepository.updateFilm(film);
+            Film newFilm = new Film(id,title,genre,director,releaseDate);
+            filmRepository.updateFilm(newFilm);
             return "The film has been updated";
         }
         return "The film was not found";
