@@ -5,12 +5,11 @@ import com.example.api.model.Film;
 import com.example.api.service.DirectorService;
 import com.example.api.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class FilmController {
     private final FilmService filmService;
     private final DirectorService directorService;
@@ -44,7 +43,7 @@ public class FilmController {
             return filmService.updateFilm(film.getId(),film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
         else return "Film ID does not match";
     }
-    @DeleteMapping
+    @DeleteMapping("/pelicula/{id}")
     public String deleteFilm(@PathVariable String id) {
         return filmService.deleteFilm(Long.parseLong(id));
     }
