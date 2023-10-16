@@ -23,6 +23,14 @@ public class Film {
         this.releaseDate = releaseDate;
     }
 
+    public Film(String title, String genre, String director, Date releaseDate) {
+        this.id = new Date().getTime();
+        this.title = title;
+        this.genre = genre;
+        this.director = director;
+        this.releaseDate = releaseDate;
+    }
+
     public Long getId() {
         return id;
     }

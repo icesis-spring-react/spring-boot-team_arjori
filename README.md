@@ -3,7 +3,7 @@
 ## Integrantes:
 
 - Ricardo Medina Sterling.
-- José Alejandro García Marcos.
+- Jose Alejandro García Marcos.
 - Ariel Eduardo Pabón Bolaños.
 
 ## Prerrequisitos:
