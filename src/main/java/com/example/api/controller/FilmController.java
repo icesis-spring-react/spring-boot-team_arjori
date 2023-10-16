@@ -49,8 +49,4 @@ public class FilmController {
         return filmService.deleteFilm(Long.parseLong(id));
     }
 
-    /*
-○ GET /directores/{id}/peliculas: Listar las peliculas de un director
-específico.
-*/
 }
