@@ -13,18 +13,20 @@ import java.util.List;
 public class FilmController {
     private final FilmService filmService;
     private final DirectorService directorService;
+
     @Autowired
     public FilmController(FilmService filmService, DirectorService directorService){
         this.filmService=filmService;
         this.directorService = directorService;
     }
 
-    @GetMapping("/peliculas")
+    @GetMapping("/films")
     public List<Film> getAllFilms(){return filmService.getAllFilms();}
-    @GetMapping("/pelicula/{id}")
+
+    @GetMapping("/film/{id}")
     public Film getFilmById(@PathVariable Long id){return filmService.getFilmById(id);}
 
-    @GetMapping("/directores/{id}/peliculas")
+    @GetMapping("/directors/{id}/films")
     public List<Film> getFilmsByDirector(@PathVariable String id){
         Director director = directorService.getDirectorById(Long.parseLong(id));
         if(director!=null){
@@ -33,19 +35,20 @@ public class FilmController {
         else return null;
     }
 
-    @PostMapping("/pelicula")
+    @PostMapping("/film")
     public String addFilm(@RequestBody Film film) {
         return filmService.addFilm(film.getId(), film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
     }
-    @PutMapping("/pelicula/{id}")
+
+    @PutMapping("/film/{id}")
     public String updateFilm(@PathVariable String id, @RequestBody Film film) {
         if(film.getId()==(Long.parseLong(id)))
             return filmService.updateFilm(film.getId(),film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
         else return "Film ID does not match";
     }
-    @DeleteMapping("/pelicula/{id}")
+
+    @DeleteMapping("/film/{id}")
     public String deleteFilm(@PathVariable String id) {
         return filmService.deleteFilm(Long.parseLong(id));
     }
-
 }
