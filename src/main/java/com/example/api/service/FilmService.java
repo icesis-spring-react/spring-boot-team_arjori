@@ -17,8 +17,8 @@ public class FilmService {
     public List<Film> getAllFilms() {return filmRepository.getAllFilms();}
     public Film getFilmById(Long id) {return filmRepository.getFilmById(id);}
     public List<Film> getFilmsByDirector(String director){return filmRepository.getFilmsByDirector(director);}
-    public String addFilm(Long id, String title, String genre, String director, Date releaseDate){
-        filmRepository.addFilm(new Film(id, title, genre, director, releaseDate));
+    public String addFilm(String title, String genre, String director, Date releaseDate){
+        filmRepository.addFilm(new Film(title, genre, director, releaseDate));
         return "The film has been added.";
     }
     public String updateFilm(Long id, String title, String genre, String director, Date releaseDate){

@@ -37,7 +37,7 @@ public class FilmController {
 
     @PostMapping("/film")
     public String addFilm(@RequestBody Film film) {
-        return filmService.addFilm(film.getId(), film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
+        return filmService.addFilm(film.getTitle(), film.getGenre(),film.getDirector(),film.getReleaseDate());
     }
 
     @PutMapping("/film/{id}")
