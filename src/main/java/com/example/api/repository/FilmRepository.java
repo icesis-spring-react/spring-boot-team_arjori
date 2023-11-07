@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -91,5 +92,6 @@ public class FilmRepository {
     public void updateFilm(Film film){
         deleteFilmById(film.getId());
         addFilm(film);
+        films.sort(Comparator.comparing(Film::getId));
     }
 }
