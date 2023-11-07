@@ -13,7 +13,7 @@ public class Director {
     }
 
     public Director(String name) {
-        this.id = new Date().getTime();
+        this.id = (long) (Math.random() * 10000000000000000L);
         this.name = name;
     }
 
