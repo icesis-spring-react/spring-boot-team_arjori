@@ -1,11 +1,14 @@
 package com.example.api.model;
 
-import org.springframework.stereotype.Component;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
-import java.util.Date;
-
-@Component
+@Entity
 public class Director {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private String name;
 
@@ -13,16 +16,11 @@ public class Director {
     }
 
     public Director(String name) {
-        this.id = (long) (Math.random() * 10000000000000000L);
         this.name = name;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

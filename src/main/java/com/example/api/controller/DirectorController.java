@@ -9,12 +9,9 @@ import java.util.List;
 
 @RestController
 public class DirectorController {
-    private final DirectorService directorService;
 
     @Autowired
-    public DirectorController(DirectorService directorService) {
-        this.directorService = directorService;
-    }
+    private DirectorService directorService;
 
     @GetMapping("/directors")
     public List<Director> getAllDirectors() {

@@ -9,39 +9,37 @@ import java.util.List;
 
 @Service
 public class DirectorService {
-    private final DirectorRepository directorRepository;
 
     @Autowired
-    public DirectorService(DirectorRepository directorRepository) {
-        this.directorRepository = directorRepository;
-    }
+    private DirectorRepository directorRepository;
 
     public List<Director> getAllDirectors() {
-        return directorRepository.getAllDirectors();
+        return this.directorRepository.findAll();
     }
 
     public Director getDirectorById(Long id) {
-        return directorRepository.getDirectorById(id);
+        return this.directorRepository.findById(id).orElse(null);
     }
 
     public String addDirector(String name) {
-        directorRepository.addDirector(new Director(name));
+        this.directorRepository.save(new Director(name));
         return "The director has been added.";
     }
 
     public String updateDirector(Long id, String name) {
-        Director director = this.directorRepository.getDirectorById(id);
+        Director director = this.directorRepository.findById(id).orElse(null);
         if (director != null) {
-            directorRepository.updateDirectorName(director, name);
+            director.setName(name);
+            this.directorRepository.save(director);
             return "The director has been updated.";
         }
         return "The director wasn't found.";
     }
 
     public String deleteDirector(Long id) {
-        Director director = directorRepository.getDirectorById(id);
+        Director director = this.directorRepository.findById(id).orElse(null);
         if (director != null) {
-            directorRepository.deleteDirectorById(id);
+            this.directorRepository.delete(director);
             return "The director has been deleted.";
         }
         return "The director wasn't found.";
