@@ -6,7 +6,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Director {
-
     @Id
     @GeneratedValue
     private Long id;

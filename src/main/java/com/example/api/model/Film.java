@@ -1,11 +1,16 @@
 package com.example.api.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Component
+@Entity
 public class Film {
+    @Id
+    @GeneratedValue
     private Long id;
     private String title;
     private String genre;
