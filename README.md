@@ -1,4 +1,8 @@
-# Taller 3: Spring Boot.
+# Taller 5: Spring Data.
+
+## Taller 3: Spring Boot.
+
+- La información de este taller se puede encontrar en el archivo README.OLD.md, por si se quiere revisar otra vez.
 
 ## Integrantes:
 
@@ -10,35 +14,33 @@
 
 - Usar IntelliJ preferiblemente.
 
-## Modo de utilización de la API:
+## Adaptación del código a Spring Data:
 
-Para emplear los endpoints de la API se requiere autenticación, la cual se puede hacer a través de un usuario y contraseña o con un JWT generado por el servidor. En las solicitudes se tendrá un campo llamado "Authorization" que contendrá el tipo de autenticación a emplear y la credencial.
+- Primero se tiene que instanciar la base de datos PostgreSQL de forma local, para ello se siguen los siguientes pasos:
 
-En este proyecto se tiene un sólo usuario quemado en el código:
+  1. Desde el usuario 'postgres' se debe ingresar a la línea de comandos con 'psql'.
+  2. Ejecutar los siguientes comandos de SQL:
 
-- username: admin
-- password: admin
+     1. **CREATE USER arjori WITH PASSWORD '12345';**
+     2. **CREATE SCHEMA esquema_arjori AUTHORIZATION arjori;**
+     3. **GRANT CREATE ON SCHEMA esquema_arjori TO arjori;**
+     4. **GRANT USAGE, CREATE ON SCHEMA esquema_arjori TO arjori;**
+     5. **GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA esquema_arjori TO arjori;**
 
-### Autenticación básica:
+  3. Asegurarse que la URL de la base de datos sea 'jdbc:postgresql://localhost:5432/postgres', el usuario sea 'arjori' y la contraseña sea '12345' en el 'pom.xml'.
 
-Para este tipo de autenticación se debe pasar las credenciales de usuario y contraseña, como se muestra en la Figura 1 y 2.
+- Los endpoints siguen siendo los mismos que los del Taller 3: Spring Boot, por lo que no necesita ninguna modificación.
 
-![BASIC_AUTH_OK](/docs/BASIC_AUTH_OK.png)
+## Probando los endpoints:
 
-**Figura 1: Autenticación básica realizada con éxito y generación de JWT.**
+![BD](/docs/BD.png)
 
-![BASIC_AUTH_REJ](/docs/BASIC_AUTH_REJ.png)
+**Figura 1: Las tablas de la base de datos en PostgreSQL.**
 
-**Figura 2: Autenticación básica realizada sin éxito.**
+![DIRECTORS](/docs/BD-DIR.png)
 
-### Autenticación por JWT:
+**Figura 2: Chequeo de que los datos sí se estén guardando en la tabla de DIRECTOR.**
 
-Para este tipo de autenticación se debe pasar el JWT generado (como en la Figura 1), tal y como se muestra en la Figura 3 y 4.
+![FILMS](/docs/BD-FILM.png)
 
-![JWT_AUTH_OK](/docs/JWT_AUTH_OK.png)
-
-**Figura 3: Autenticación con JWT realizada con éxito.**
-
-![JWT_AUTH_REJ](/docs/JWT_AUTH_REJ.png)
-
-**Figura 4: Autenticación con JWT realizada sin éxito.**
+**Figura 3: Chequeo de que los datos sí se estén guardando en la tabla de FILM.**
